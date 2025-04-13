@@ -1,5 +1,28 @@
-import { LoginPage } from "@/pages/login/ui/LoginPage";
+import { useEffect, useState } from 'react';
+import { Header } from '@widgets/ui/Header';
+import { Outlet } from 'react-router-dom';
 
-export const App = () => {
-  return <LoginPage />;
-};
+interface DataResponse {
+  message: string;
+}
+
+export const App = ()  => {
+  const [data, setData] = useState<string>('');
+
+  useEffect(() => {
+    fetch('/api')
+      .then((response) => response.json())
+      .then((data: DataResponse) => setData(data.message));
+  }, []);
+
+  return (
+    <>
+    <Header />
+    <main>
+      <h1>Home</h1>
+      <h2>Backend Response: {data}</h2>
+      <Outlet />
+    </main>
+    </>
+  );
+}
