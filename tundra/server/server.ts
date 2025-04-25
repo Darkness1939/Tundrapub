@@ -1,11 +1,35 @@
 import express, {  Request, Response } from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { sequelize } from './shared/db/sequelize';
+import { initModels } from './app/init-models';
 
 const app = express();
 
 dotenv.config();
-const port = process.env.PORT || 3001; 
+const PORT = process.env.PORT || 3001; 
+
+const start = async () => {
+  try {
+    // Инициализация всех моделей и связей
+    initModels();
+
+    // Проверка подключения к БД
+    await sequelize.authenticate();
+    await sequelize.sync();
+
+    console.log('DB connected & models synced');
+
+    // Запуск сервера
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Error while starting server:', error);
+  }
+};
+
+start();
 
 app.use(cors({
   origin: 'http://localhost:5173', 
@@ -14,10 +38,6 @@ app.use(cors({
 
 app.get('/api', (req: Request, res: Response) => {
   res.json({ message: 'Hello from the backend!' });
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
 });
 
 app.post('/api/registration', (req: Request, res: Response) => {
