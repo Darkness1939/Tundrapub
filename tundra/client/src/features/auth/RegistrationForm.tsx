@@ -1,7 +1,8 @@
-
 import { useForm } from 'react-hook-form';
 import { Input } from '@shared/ui/Input';
 import { Button } from '@shared/ui/Button';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 interface SignupFormValues {
   username: string;
@@ -14,11 +15,22 @@ export const RegistrationForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<SignupFormValues>();
 
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (data: SignupFormValues) => {
+    //Проверка на совпадение паролей
+    if (data.password !== data.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
     try {
+      setLoading(true);
       const res = await fetch('/api/registration', {
         method: 'POST',
         headers: {
@@ -27,66 +39,66 @@ export const RegistrationForm = () => {
         body: JSON.stringify(data),
       });
 
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(errorData.message || 'Registration failed');
+        return;
+      }
+
       const resData = await res.json();
       alert(resData.message);
+      navigate('/');
     } catch (err) {
       console.error('Registration failed', err);
+      alert('Something went wrong!');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="CLASS__NAME">
       <div>
-        <label className="CLASS__NAME">Username</label>
+        <label>Username</label>
         <Input
           {...register('username', { required: 'Username is required' })}
           className="CLASS__NAME"
         />
-        {errors.username && (
-          <p className="CLASS__NAME">{errors.username.message}</p>
-        )}
+        {errors.username && <p>{errors.username.message}</p>}
       </div>
+
       <div>
-        <label className="CLASS__NAME">Email</label>
+        <label>Email</label>
         <Input
           type="email"
           {...register('email', { required: 'Email is required' })}
           className="CLASS__NAME"
         />
-        {errors.email && (
-          <p className="CLASS__NAME">{errors.email.message}</p>
-        )}
+        {errors.email && <p>{errors.email.message}</p>}
       </div>
 
       <div>
-        <label className="CLASS__NAME">Password</label>
+        <label>Password</label>
         <Input
           type="password"
           {...register('password', { required: 'Password is required' })}
           className="CLASS__NAME"
         />
-        {errors.password && (
-          <p className="CLASS__NAME">{errors.password.message}</p>
-        )}
+        {errors.password && <p>{errors.password.message}</p>}
       </div>
 
       <div>
-        <label className="CLASS__NAME">Confirm Password</label>
+        <label>Confirm Password</label>
         <Input
           type="password"
           {...register('confirmPassword', { required: 'Confirm Password is required' })}
           className="CLASS__NAME"
         />
-        {errors.confirmPassword && (
-          <p className="CLASS__NAME">{errors.confirmPassword.message}</p>
-        )}
+        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
       </div>
 
-      <Button
-        type="submit"
-        className="CLASS__NAME"
-      >
-        Register
+      <Button type="submit" className="CLASS__NAME" disabled={loading}>
+        {loading ? 'Registering...' : 'Register'}
       </Button>
     </form>
   );

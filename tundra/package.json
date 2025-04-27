@@ -14,12 +14,17 @@
     "server"
   ],
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
     "path": "^0.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "sequelize": "^6.37.7",
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { Review } from "../entities/reviews/models/Reviews";
+import { Review } from "../entities/review/model/Review";
 import { User } from "../entities/user/models/User";
 
 export const initModels = () => {

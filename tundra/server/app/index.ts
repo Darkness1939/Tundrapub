@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import reviewRoutes from '../entities/reviews/routes/review.routes';
+// import reviewRoutes from '../entities/reviews/routes/review.routes';
+import reviewRoutes from '../entities/review/routes/review.routes';
 import { errorHandler } from '../shared/middleware/errorHandler';
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 // Роуты
 app.use('/api/reviews', reviewRoutes);
+app.use('api/registation', registrationRoutes);
 
 // Middleware - глобальная обработка ошибок 
 app.use(errorHandler);
