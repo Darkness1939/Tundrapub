@@ -1,5 +1,14 @@
 {
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "rollup": "^4.40.0"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.0.1",
+    "@reduxjs/toolkit": "^2.8.2",
+    "react-hook-form": "^7.56.3",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.0",
+    "zod": "^3.24.4"
   }
 }
