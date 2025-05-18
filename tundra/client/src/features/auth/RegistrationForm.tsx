@@ -59,7 +59,7 @@ export const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="CLASS__NAME">
       <div>
-        <label>Username</label>
+        <label id='un'>Username</label>
         <Input
           {...register('username', { required: 'Username is required' })}
           className="CLASS__NAME"
@@ -68,7 +68,7 @@ export const RegistrationForm = () => {
       </div>
 
       <div>
-        <label>Email</label>
+        <label id='em'>Email</label>
         <Input
           type="email"
           {...register('email', { required: 'Email is required' })}
@@ -78,7 +78,7 @@ export const RegistrationForm = () => {
       </div>
 
       <div>
-        <label>Password</label>
+        <label id='pas'>Password</label>
         <Input
           type="password"
           {...register('password', { required: 'Password is required' })}
@@ -88,7 +88,7 @@ export const RegistrationForm = () => {
       </div>
 
       <div>
-        <label>Confirm Password</label>
+        <label id='cp'>Confirm Password</label>
         <Input
           type="password"
           {...register('confirmPassword', { required: 'Confirm Password is required' })}

@@ -1,13 +1,14 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../../../sequelize';
 import { User } from '../../user/models/User';
 
 export interface ReviewData {
   id: number;
   user_id: number;
-  name: string;
-  description: string;
-  value: number;
+  product_name: string;
+  review: string;
+  rate: number;
+  photo: string;
 }
 
 export const Review = sequelize.define<Model<ReviewData>>('Review', {
@@ -20,16 +21,20 @@ export const Review = sequelize.define<Model<ReviewData>>('Review', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  name: {
+  product_name: {
     type: DataTypes.STRING(200),
     allowNull: false,
   },
-  description: {
+  review: {
     type: DataTypes.STRING(500),
     allowNull: false,
   },
-  value: {
+  rate: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  photo: {
+    type: DataTypes.STRING(500),
     allowNull: false,
   },
 }, {

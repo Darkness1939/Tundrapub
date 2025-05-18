@@ -15,6 +15,8 @@
 
 a {
   font-weight: 500;
+  font-size: large;
+  transition: font-size 0.5s ease;
   color: #646cff;
   text-decoration: inherit;
 }
@@ -28,11 +30,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(32, 32, 32);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: rgb(114, 114, 114);
 }
 
 button {
@@ -61,8 +65,26 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
+    font-size: 50px;  
   }
   button {
     background-color: #f9f9f9;
   }
+}
+
+#logword{
+  font-size: 200;
+}
+
+#regform{
+  display: block;
+  position: absolute;
+  top: 0px;
+  transform: translate(800px);
+}
+
+#un{
+  color: purple;
+  font-size: 25px;
+  margin-right: 25px;
 }
