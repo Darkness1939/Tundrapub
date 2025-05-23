@@ -1,25 +1,40 @@
-// import { Review } from "../../../models/Reviews"; // не правильно указан путь к файлу(модели Reviews)
+import { Review } from "../model/Review";
+import { User } from "../../user/models/User";
 
-import { Review } from "../model/Review"; // - правильный путь к файлу
+interface ReviewData {
+  id: number;
+  user_id: number;
+  product_name: string;
+  review: string;
+  rate: number;
+  photo: string;
+}
 
 export const reviewService = {
-  async getAll() {
-    return await Review.findAll();
-  },
+  async createReview({ id, user_id, product_name, review, rate, photo}: ReviewData) {
+    const user = await User.findByPk(user_id);
+    if (!user) {
+      throw new Error ('User not found');
+    }
 
-  async getById(id: number) {
-    return await Review.findByPk(id);
-  },
+    const newReview = await Review.create({
+      id,
+      user_id,
+      product_name,
+      review,
+      rate,
+      photo,
+    })
+    
+    const ReviewData = newReview.toJSON();
 
-  async create(data: any) {
-    return await Review.create(data);
-  },
-
-  async update(id: number, data: any) {
-    return await Review.update(data, { where: { id } });
-  },
-
-  async remove(id: number) {
-    return await Review.destroy({ where: { id } });
-  },
+    return {
+      id: ReviewData.id,
+      user_id: ReviewData.user_id,
+      product_name: ReviewData.product_name,
+      review: ReviewData.review,
+      rate: ReviewData.rate,
+      photo: ReviewData.photo,
+    };
+  }
 };

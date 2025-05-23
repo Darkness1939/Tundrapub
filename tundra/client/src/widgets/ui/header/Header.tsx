@@ -20,6 +20,11 @@ export const Header = () => {
             Login
           </Link>
         </nav>
+        <nav>
+        <Link to="/reviews" className="CLASS__NAME" id='reviews'>
+          Reviews
+          </Link>
+        </nav>
       </div>
     </header>
   );

@@ -86,5 +86,29 @@ button:focus-visible {
 #un{
   color: purple;
   font-size: 25px;
-  margin-right: 25px;
+}
+
+#em{
+  color: purple;
+  font-size: 25px;
+}
+
+#pas{
+  color: purple;
+  font-size: 25px;
+}
+
+#cp{
+  color: purple;
+  font-size: 25px;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.CLASS__NAME{
+ color: red;
 }

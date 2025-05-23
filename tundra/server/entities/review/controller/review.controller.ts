@@ -2,32 +2,21 @@ import { Request, Response } from 'express';
 import { reviewService } from '../service/review.service';
 
 export const reviewController = {
-  async getAll(req: Request, res: Response) {
-    const reviews = await reviewService.getAll();
-    res.json(reviews);
-  },
+  createReview: async (req: Request, res: Response) => {
+    const { id, user_id, product_name, review, rate, photo } = req.body;
 
-  async getById(req: Request, res: Response) {
-    const id = Number(req.params.id);
-    const review = await reviewService.getById(id);
-    if (!review) return res.status(404).json({ message: 'Not found' });
-    res.json(review);
-  },
+    try {
+      const newReview = await reviewService.createReview({
+        id, user_id, product_name, review, rate, photo });
 
-  async create(req: Request, res: Response) {
-    const review = await reviewService.create(req.body);
-    res.status(201).json(review);
-  },
-
-  async update(req: Request, res: Response) {
-    const id = Number(req.params.id);
-    await reviewService.update(id, req.body);
-    res.json({ message: 'Review updated' });
-  },
-
-  async remove(req: Request, res: Response) {
-    const id = Number(req.params.id);
-    await reviewService.remove(id);
-    res.json({ message: 'Review deleted' });
-  },
+        res.status(201).json({
+          id: newReview.id,
+          message: 'Review created successfully!',
+        });
+    } catch (error: any) {
+      res.status(500).json({
+        message: error.message || 'Review creation failed',
+      });
+    }
+  }  
 };

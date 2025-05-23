@@ -1,13 +1,14 @@
 import { Router } from 'express';
-import { reviewController } from '../controller/review.controller';
 import { asyncHandler } from '../../../shared/lib/asyncHandler';
+import { reviewService } from '../service/review.service';
 
 const reviewRoutes = Router();
 
-reviewRoutes.get('/', asyncHandler(reviewController.getAll));
-reviewRoutes.get('/:id', asyncHandler(reviewController.getById));
-reviewRoutes.post('/', asyncHandler(reviewController.create));
-reviewRoutes.put('/:id', asyncHandler(reviewController.update));
-reviewRoutes.delete('/:id', asyncHandler(reviewController.remove));
+reviewRoutes.post('/', asyncHandler(reviewService.createReview));
+
+reviewRoutes.get('/', (req, res) => {
+    res.status(405).json({ message: 'Use POST method to create review' });
+  });
+    
 
 export default reviewRoutes;
