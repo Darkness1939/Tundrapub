@@ -53,27 +53,28 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="CLASS__NAME">
-      <div>
-        <label>Email</label>
+      <div className='col'>
+        <label id= 'eml'>Email</label>
         <Input
           type="email"
           {...register('email')}
-          className="CLASS__NAME"
+          className="nra"
+          id='bg'
         />
         {errors.email && <p>{errors.email.message}</p>}
       </div>
 
-      <div>
-        <label>Password</label>
+      <div className='col'>
+        <label id= 'pasl'>Password</label>
         <Input
           type="password"
           {...register('password')}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.password && <p>{errors.password.message}</p>}
       </div>
 
-      <Button type="submit" disabled={loading}>
+      <Button id='logbut' type="submit" disabled={loading}>
         {loading ? 'Logging in...' : 'Login'}
       </Button>
     </form>

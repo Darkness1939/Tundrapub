@@ -52,57 +52,70 @@ export const ReviewForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="CLASS__NAME">
-      <div>
-        <label id='un'>produc tName</label>
+      <div className='col'>
+        <label id='un'>Name</label>
         <Input
+          placeholder='Product name'
           {...register('productName', { required: 'Username is required' })}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.productName && <p>{errors.productName.message}</p>}
       </div>
 
-      <div>
-        <label id='em'>review</label>
-        <Input
-          type="email"
-          {...register('review', { required: true })}
-          className="CLASS__NAME"
-        />
-        {errors.review && <p>{errors.review.message}</p>}
-      </div>
-
-      <div>
-        <label id='pas'>rate</label>
-        <Input
-          type="text"
-          {...register('rate')}
-          className="CLASS__NAME"
-        />
-        {errors.rate && <p>{errors.rate.message}</p>}
-      </div>
-
-      <div>
-        <label id='cp'>photo</label>
-        <Input
-          type="text"
-          {...register('photo')}
-          className="CLASS__NAME"
-        />
-        {errors.photo && <p>{errors.photo.message}</p>}
-      </div>
-
-      <div>
+      <div className='col'>
         <label id='pas'>Author</label>
         <Input
+          placeholder='Author or creator of product'
           type="text"
           {...register('user_id')}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.user_id && <p>{errors.user_id.message}</p>}
       </div>
 
+      <div className='col'>
+        <label id='em'>Review</label>
+        <Input
+        placeholder='Describe product'
+          type='text'
+          {...register('review', { required: true })}
+          className="nra"
+        />
+        {errors.review && <p>{errors.review.message}</p>}
+      </div>
 
-      <Button type="submit" className="CLASS__NAME" disabled={loading}>
+      <div className='col'>
+        <label id='pas'>Rate</label>
+        <Input
+          type='range'
+          id='culor'
+          min='1'
+          max='5'
+          list='markers'
+          {...register('rate')}
+          className="nra"
+        />
+        <datalist id="markers">
+  <option value="1" label='1'></option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+        </datalist>
+        {errors.rate && <p>{errors.rate.message}</p>}
+      </div>
+
+      <div className='col'>
+        <label id='cp'>Image</label>
+        <Input
+          type='file'  
+          {...register('photo')}
+          className="nrad"
+        />
+        {errors.photo && <p>{errors.photo.message}</p>}
+      </div>
+
+      <Button type="submit" id='revbut' className="CLASS__NAME" disabled={loading}>
         {loading ? 'Submiting...' : 'Submit'}
       </Button>
     </form>

@@ -112,3 +112,72 @@ button:focus-visible {
 .CLASS__NAME{
  color: red;
 }
+
+#regreg{
+  margin-top: 20px;
+}
+
+#logform{
+  display: block;
+  position: absolute;
+  top: 0px;
+  transform: translate(800px);
+}
+
+#logg{
+  margin-left: 50px;
+}
+
+#eml{
+  color: purple;
+  font-size: 25px;
+}
+
+#pasl{
+  color: purple;
+  font-size: 25px;
+}
+
+#bg{
+width: 285px;
+}
+
+#logbut{
+  margin-top: 20px;
+}
+
+#revform{
+  display: block;
+  position: absolute;
+  top: 0px;
+  transform: translate(800px);
+}
+
+#revbut{
+  margin-top: 20px;
+}
+
+#markers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 330px;
+    color: gold;
+  }
+
+#culor{
+  color: gold;
+  accent-color: gold;
+}
+
+.nra{
+  color: #000000;
+}
+
+.nrad{
+  color: crimson;
+}
+
+h1{
+  color: darkmagenta;
+}

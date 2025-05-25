@@ -1,10 +1,9 @@
-import { ReviewForm } from "@features/auth/ReviewForm"
-import './index.css'
+import { ReviewForm } from "@features/auth/ui/ReviewForm"
 
 export const ReviewPage = () => {
     return (
-      <div className="review__container">
-          <h1 className="">Reviews:</h1>
+      <div id='revform'>
+          <h1>Create review</h1>
           <ReviewForm />
       </div>
     );

@@ -62,7 +62,7 @@ export const RegistrationForm = () => {
         <label id='un'>Username</label>
         <Input
           {...register('username', { required: 'Username is required' })}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.username && <p>{errors.username.message}</p>}
       </div>
@@ -72,7 +72,7 @@ export const RegistrationForm = () => {
         <Input
           type="email"
           {...register('email', { required: 'Email is required' })}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.email && <p>{errors.email.message}</p>}
       </div>
@@ -82,7 +82,7 @@ export const RegistrationForm = () => {
         <Input
           type="password"
           {...register('password', { required: 'Password is required' })}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.password && <p>{errors.password.message}</p>}
       </div>
@@ -92,12 +92,12 @@ export const RegistrationForm = () => {
         <Input
           type="password"
           {...register('confirmPassword', { required: 'Confirm Password is required' })}
-          className="CLASS__NAME"
+          className="nra"
         />
         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
       </div>
 
-      <Button type="submit" className="CLASS__NAME" disabled={loading}>
+      <Button type="submit" id="regreg" className="CLASS__NAME" disabled={loading}>
         {loading ? 'Registering...' : 'Register'}
       </Button>
     </form>
