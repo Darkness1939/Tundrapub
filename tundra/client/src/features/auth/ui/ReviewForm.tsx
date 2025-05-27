@@ -63,17 +63,6 @@ export const ReviewForm = () => {
       </div>
 
       <div className='col'>
-        <label id='pas'>Author</label>
-        <Input
-          placeholder='Author or creator of product'
-          type="text"
-          {...register('user_id')}
-          className="nra"
-        />
-        {errors.user_id && <p>{errors.user_id.message}</p>}
-      </div>
-
-      <div className='col'>
         <label id='em'>Review</label>
         <Input
         placeholder='Describe product'

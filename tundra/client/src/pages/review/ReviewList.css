@@ -1,0 +1,66 @@
+.review-list {
+    padding: 2rem;
+    background-color: #fdf9ff;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .review-list__title {
+    color: darkmagenta;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .review-list__loading,
+  .review-list__empty {
+    text-align: center;
+    color: #444;
+    font-size: 1.2rem;
+  }
+  
+  .review-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .review-card {
+    background-color: #fff0fa;
+    border: 2px solid darkmagenta;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 10px rgba(139, 0, 139, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .review-card__product {
+    color: darkmagenta;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-card__user,
+  .review-card__rate {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0.2rem 0;
+  }
+  
+  .review-card__text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #222;
+  }
+  
+  .review-card__image {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    object-fit: cover;
+  }

@@ -80,7 +80,14 @@ button:focus-visible {
   display: block;
   position: absolute;
   top: 0px;
-  transform: translate(800px);
+  left: 800px;
+  transform: translateY(-150%);
+  animation: ani 1s forwards;
+}
+
+@keyframes ani {
+  0% {transform: translateY(-150%);}
+  100% {transform: translateY(0);}
 }
 
 #un{
@@ -121,7 +128,9 @@ button:focus-visible {
   display: block;
   position: absolute;
   top: 0px;
-  transform: translate(800px);
+  left: 800px;
+  transform: translateY(-150%);
+  animation: ani 1s forwards;
 }
 
 #logg{
@@ -150,7 +159,9 @@ width: 285px;
   display: block;
   position: absolute;
   top: 0px;
-  transform: translate(800px);
+  left: 800px;
+  transform: translateY(-150%);
+  animation: ani 1s forwards;
 }
 
 #revbut{
@@ -180,4 +191,18 @@ width: 285px;
 
 h1{
   color: darkmagenta;
+}
+
+#tuda{
+  font-size: 50px;
+   position: absolute;
+   top: 0px;
+   color: #646cff;
+}
+
+#sys{
+  position: absolute;
+  color: rgb(0, 255, 191);
+  font-size: large;
+  font-weight: 600;
 }

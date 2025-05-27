@@ -1,4 +1,4 @@
-import { ReviewForm } from "@features/auth/ui/ReviewForm"
+import { ReviewForm } from "@features/auth/ui/ReviewForm" 
 
 export const ReviewPage = () => {
     return (

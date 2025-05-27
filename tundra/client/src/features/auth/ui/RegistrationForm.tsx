@@ -61,6 +61,7 @@ export const RegistrationForm = () => {
       <div className='col'>
         <label id='un'>Username</label>
         <Input
+        placeholder='For example: FeDDor2017'
           {...register('username', { required: 'Username is required' })}
           className="nra"
         />
@@ -70,6 +71,7 @@ export const RegistrationForm = () => {
       <div className='col'>
         <label id='em'>Email</label>
         <Input
+        placeholder='Your email'
           type="email"
           {...register('email', { required: 'Email is required' })}
           className="nra"
@@ -80,6 +82,7 @@ export const RegistrationForm = () => {
       <div className='col'>
         <label id='pas'>Password</label>
         <Input
+        placeholder='Must have 6 characters'
           type="password"
           {...register('password', { required: 'Password is required' })}
           className="nra"
@@ -90,6 +93,7 @@ export const RegistrationForm = () => {
       <div className='col'>
         <label id='cp'>Confirm Password</label>
         <Input
+         placeholder='Repeat password'
           type="password"
           {...register('confirmPassword', { required: 'Confirm Password is required' })}
           className="nra"

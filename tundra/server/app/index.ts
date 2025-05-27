@@ -13,9 +13,10 @@ app.use(cors());
 app.use(express.json());
 
 // Роуты
-app.use('/api', LoginRouter);
+app.use('/api/login', LoginRouter);
 app.use('/api/reviews', reviewRoutes);
 app.use('api/registration', registrationRoutes);
+app.use('/uploads', express.static('uploads'));
 
 // Middleware - глобальная обработка ошибок 
 app.use(errorHandler);

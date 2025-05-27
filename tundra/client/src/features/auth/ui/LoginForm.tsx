@@ -56,6 +56,7 @@ export const LoginForm = () => {
       <div className='col'>
         <label id= 'eml'>Email</label>
         <Input
+        placeholder='Your email'
           type="email"
           {...register('email')}
           className="nra"
@@ -67,6 +68,7 @@ export const LoginForm = () => {
       <div className='col'>
         <label id= 'pasl'>Password</label>
         <Input
+        placeholder='Your password'
           type="password"
           {...register('password')}
           className="nra"
